@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	    <link rel="stylesheet" href="css/amazeui.min.css">
+		<link rel="stylesheet" href="css/admin.css">
+		<link rel="stylesheet" href="css/app.css">
+		<style>
+			.admin-main{
+				padding-top: 0px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="am-cf admin-main">
+		<!-- content start -->
+		<div style="overflow: hidden;" class="admin-content">
+			<div class="admin-content-body">
+				<div class="am-g">
+					<form id="from1" class="am-form am-form-horizontal"
+						 method="post" action="updateCurrentPassword"
+						style="padding-top:30px;" data-am-validator>
+						<div class="am-form-group">
+							<label for="user-name" class="am-u-sm-3 am-form-label">
+							新密码 </label>
+							<div class="am-u-sm-9">
+								<input type="password" id="doc-vld-pwd-1" required placeholder="请输入新密码" 
+									name="password"> <small>输入新密码。</small>
+							</div>
+						</div>
+						<div class="am-form-group">
+							<label for="user-name" class="am-u-sm-3 am-form-label">
+								重复密码</label>
+							<div class="am-u-sm-9">
+								<input type="password" id="doc-vld-pwd-2" required placeholder="请输入重复密码" 
+									name="pwd"  data-equal-to="#doc-vld-pwd-1"  required> <small>输入重复密码。</small>
+							</div>
+						</div>
+						<button type="button" onclick="close()"  class="am-btn am-btn-default"><span class="am-icon-plus"></span> 关闭</button>
+						
+						<div class="am-form-group">
+							<div class="am-u-sm-9 am-u-sm-push-3">
+								<input onclick="remove()" type="submit" class="am-btn am-btn-success" value="修改密码" />
+							</div>
+							<div  class="am-u-sm-9 am-u-sm-push-3">
+							<!-- style="border: 1px solid red"s -->
+							</div>
+						</div>
+					</form>
+					
+				</div>
+			</div>
+		</div>
+		
+
+		
+	</div>
+	<script type="text/javascript"
+		src="assets/js/libs/jquery-1.10.2.min.js">
+	</script>
+	<script type="text/javascript" src="myplugs/js/plugs.js">
+	</script>
+	
+	<script>
+	
+	$(document).ready(function() {
+		// 提交表单 
+		//submit 增加回调函数  ,当前 formId是表单Id
+		$("#from1").submit(function(){
+			var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+			parent.layer.close(index); //再执行关闭
+			
+			var collectionId = parent.$("#hideCollectionId").val();//可在父页面定义隐藏域，id为hideCollectionId，需要引用jquery
+			layer.closeAll('iframe'); //关闭所有的iframe层
+		}); 
+		 
+		}); 
+		 
+	function close(){
+		var index=parent.layer.getFrameIndex(window.name);
+		parent.layer.close(index);
+		
+	}
+	</script>
+	
+	</body>
+</html>
